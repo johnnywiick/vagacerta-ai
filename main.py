@@ -287,7 +287,7 @@ def criar_pagamento(body: PagamentoInput):
     print(f"MP status: {resultado['status']}")
 
     if resultado["status"] == 201:
-        link = resultado["response"]["sandbox_init_point"]
+        link = resultado["response"]["init_point"]
         print(f"✅ Pagamento criado para {email}")
         return {"status": "sucesso", "link_pagamento": link}
     else:
