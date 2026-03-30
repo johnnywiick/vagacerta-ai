@@ -271,7 +271,7 @@ def criar_pagamento(body: PagamentoInput):
             "title": "VagaCerta AI - Busca Aprofundada de Vagas",
             "quantity": 1,
             "currency_id": "BRL",
-            "unit_price": 15.00,
+            "unit_price": 1.00,
         }],
         "payer": {"email": email},
         "back_urls": {
