@@ -204,7 +204,7 @@
             </div>
             <div class="pricing-info">
                 <span class="badge-free">1º Busca Grátis</span>
-                <span>Depois, apenas <strong>R$ 15,00</strong> por busca aprofundada.</span>
+                <span>Depois, apenas <strong>R$ 9,99</strong> por busca aprofundada.</span>
             </div>
         </div>
     </section>
@@ -223,7 +223,7 @@
             <h2>Sua busca grátis foi usada!</h2>
             <p class="card-desc">Desbloqueie mais buscas por apenas <strong>R$ 9,99</strong> e continue encontrando as melhores vagas.</p>
             <button class="btn-mp" id="btnPagar" onclick="iniciarPagamento()">
-                <i class="fab fa-pix"></i> Pagar R$ 15,00 com Mercado Pago
+                <i class="fab fa-pix"></i> Pagar R$ 9,99 com Mercado Pago
             </button>
             <p class="mp-seguro"><i class="fas fa-lock"></i> 100% seguro · PIX, Cartão ou Boleto</p>
             <button class="btn-secondary" onclick="voltarEmail()">← Usar outro email</button>
@@ -432,8 +432,8 @@ async function iniciarPagamento() {
         const resp = await fetch('/api/criar-pagamento', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:emailAtual})});
         const data = await resp.json();
         if (data.status==='sucesso') window.location.href = data.link_pagamento;
-        else { alert('❌ Erro ao criar pagamento.'); if(btn){btn.disabled=false;btn.innerHTML='<i class="fab fa-pix"></i> Pagar R$ 15,00 com Mercado Pago';} }
-    } catch { alert('❌ Erro de conexão.'); if(btn){btn.disabled=false;btn.innerHTML='<i class="fab fa-pix"></i> Pagar R$ 15,00 com Mercado Pago';} }
+        else { alert('❌ Erro ao criar pagamento.'); if(btn){btn.disabled=false;btn.innerHTML='<i class="fab fa-pix"></i> Pagar R$ 9,99 com Mercado Pago';} }
+    } catch { alert('❌ Erro de conexão.'); if(btn){btn.disabled=false;btn.innerHTML='<i class="fab fa-pix"></i> Pagar R$ 9,99 com Mercado Pago';} }
 }
 
 function irParaUpload() {
@@ -504,7 +504,7 @@ function renderizarResultados(data) {
     const desbloqueio = vagas.length>3 ? `
         <div class="unlock-section">
             <button class="btn-unlock" id="btnUnlock" onclick="iniciarPagamento()">
-                <i class="fas fa-lock-open"></i> Desbloquear todas as vagas por R$ 15,00
+                <i class="fas fa-lock-open"></i> Desbloquear todas as vagas por R$ 9,99
             </button>
             <span class="unlock-note">PIX, Cartão ou Boleto · Acesso imediato · Sem assinatura</span>
         </div>` : '';
