@@ -17,10 +17,9 @@ import os
 import re
 import sqlite3
 from datetime import datetime
-import smtplib
+import resend
 import random
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
+
 
 # ============================================================
 # CONFIGURAÇÕES
@@ -143,18 +142,17 @@ def usuario_pode_buscar(email: str) -> tuple:
 # ENVIO DE EMAILS
 # ============================================================
 def enviar_email(destinatario: str, assunto: str, corpo_html: str) -> bool:
-    if not GMAIL_EMAIL or not GMAIL_SENHA:
-        print("⚠️  Gmail não configurado.")
-        return False
     try:
-        msg = MIMEMultipart("alternative")
-        msg["Subject"] = assunto
-        msg["From"]    = f"VagaCerta AI <{GMAIL_EMAIL}>"
-        msg["To"]      = destinatario
-        msg.attach(MIMEText(corpo_html, "html", "utf-8"))
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
-            smtp.login(GMAIL_EMAIL, GMAIL_SENHA)
-            smtp.sendmail(GMAIL_EMAIL, destinatario, msg.as_string())
+        resend.api_key = os.getenv("re_5gNoG3u4_DmKgNrRr2FEK6BUb4xai86nu")
+        
+        params = {
+            "from": "VagaCerta AI <onboarding@resend.dev>",
+            "to": [destinatario],
+            "subject": assunto,
+            "html": corpo_html,
+        }
+        
+        resend.Emails.send(params)
         print(f"📧 Email enviado para: {destinatario}")
         return True
     except Exception as e:
