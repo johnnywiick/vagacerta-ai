@@ -17,7 +17,6 @@ import os
 import re
 import sqlite3
 from datetime import datetime
-import resend
 import random
 
 
@@ -143,18 +142,26 @@ def usuario_pode_buscar(email: str) -> tuple:
 # ============================================================
 def enviar_email(destinatario: str, assunto: str, corpo_html: str) -> bool:
     try:
-        resend.api_key = os.getenv("RESEND_API_KEY")
-        
-        params = {
-            "from": "VagaCerta AI <onboarding@resend.dev>",
-            "to": [destinatario],
-            "subject": assunto,
-            "html": corpo_html,
+        import requests
+        url = "https://api.brevo.com/v3/smtp/email"
+        headers = {
+            "accept": "application/json",
+            "api-key": os.getenv("BREVO_API_KEY"),
+            "content-type": "application/json"
         }
-        
-        resend.Emails.send(params)
-        print(f"📧 Email enviado para: {destinatario}")
-        return True
+        payload = {
+            "sender": {"name": "VagaCerta AI", "email": "johnnymarcos2013@gmail.com"},
+            "to": [{"email": destinatario}],
+            "subject": assunto,
+            "htmlContent": corpo_html
+        }
+        response = requests.post(url, json=payload, headers=headers)
+        if response.status_code == 201:
+            print(f"📧 Email enviado para: {destinatario}")
+            return True
+        else:
+            print(f"❌ Erro ao enviar email: {response.text}")
+            return False
     except Exception as e:
         print(f"❌ Erro ao enviar email: {e}")
         return False
