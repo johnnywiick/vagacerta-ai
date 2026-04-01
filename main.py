@@ -209,7 +209,7 @@ def email_boas_vindas_com_vagas(destinatario: str, nome: str, cargo: str, vagas:
         </div>
         <div style="background:#EEF2FF;border-radius:12px;padding:20px;text-align:center;margin-bottom:16px;">
             <p style="color:#4F46E5;font-weight:600;margin:0 0 12px;">🔒 {max(0,len(vagas)-3)} vagas ainda bloqueadas</p>
-            <a href="{BASE_URL}" style="background:#10B981;color:white;padding:12px 24px;border-radius:50px;font-weight:700;text-decoration:none;font-size:0.95rem;">Desbloquear por R$ 15,00</a>
+            <a href="{BASE_URL}" style="background:#10B981;color:white;padding:12px 24px;border-radius:50px;font-weight:700;text-decoration:none;font-size:0.95rem;">Desbloquear por R$ 9,99</a>
         </div>
         <p style="text-align:center;color:#94A3B8;font-size:0.75rem;">© 2026 VagaCerta AI | Desenvolvido por Johnny Marcos</p>
     </div>"""
