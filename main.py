@@ -143,7 +143,7 @@ def usuario_pode_buscar(email: str) -> tuple:
 # ============================================================
 def enviar_email(destinatario: str, assunto: str, corpo_html: str) -> bool:
     try:
-        resend.api_key = os.getenv("re_5gNoG3u4_DmKgNrRr2FEK6BUb4xai86nu")
+        resend.api_key = os.getenv("re_5dJGt3u2_AgWynrtMhsj7A4JgDMGwjJk3")
         
         params = {
             "from": "VagaCerta AI <onboarding@resend.dev>",
