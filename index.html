@@ -23,12 +23,10 @@
 
         main { flex:1; display:flex; flex-direction:column; align-items:center; padding:60px 20px; width:100%; }
 
-        /* Títulos centralizados */
         .page-title { font-size:3rem; font-weight:800; margin-bottom:20px; max-width:800px; letter-spacing:-1px; text-align:center; }
         .highlight { color:var(--primary); }
         .page-sub { font-size:1.15rem; color:var(--muted); margin-bottom:50px; max-width:600px; text-align:center; }
 
-        /* Card genérico centralizado */
         .card {
             background:var(--white);
             border:1px solid var(--border);
@@ -59,14 +57,12 @@
         .msg-erro { color:var(--danger); font-size:.85rem; margin-top:6px; display:none; text-align:center; }
         .badge-gratis { display:inline-flex; align-items:center; gap:8px; background:#ECFDF5; border:1px solid #A7F3D0; color:#065F46; padding:10px 16px; border-radius:50px; font-size:.85rem; font-weight:600; margin-top:20px; align-self:center; }
 
-        /* CÓDIGO */
         .codigo-wrap { text-align:center; }
         .codigo-inputs { display:flex; gap:10px; justify-content:center; margin-bottom:20px; }
         .codigo-input { width:50px; height:60px; text-align:center; font-size:1.6rem; font-weight:800; border:2px solid var(--border); border-radius:10px; outline:none; color:var(--primary); transition:border-color .2s; }
         .codigo-input:focus { border-color:var(--primary); }
         .reenviar-btn { color:var(--primary); font-size:.85rem; cursor:pointer; background:none; border:none; text-decoration:underline; margin-top:8px; }
 
-        /* UPLOAD */
         .section-upload-inner { display:flex; flex-direction:column; align-items:center; width:100%; text-align:center; }
         .email-logado { display:flex; align-items:center; gap:10px; background:#EEF2FF; border:1px solid #C7D2FE; color:var(--primary); padding:10px 20px; border-radius:50px; font-size:.9rem; font-weight:600; margin-bottom:24px; }
         .upload-box { background:var(--white); border:2px dashed var(--primary); border-radius:16px; padding:60px 40px; width:100%; max-width:600px; cursor:pointer; transition:all .3s; box-shadow:0 10px 25px rgba(0,0,0,.05); }
@@ -79,25 +75,21 @@
         .pricing-info { margin-top:28px; display:flex; align-items:center; gap:14px; background:var(--white); padding:14px 28px; border-radius:50px; border:1px solid var(--border); font-size:.95rem; }
         .badge-free { background:var(--success); color:#fff; padding:5px 12px; border-radius:20px; font-weight:800; font-size:.8rem; text-transform:uppercase; }
 
-        /* LOADING */
         #section-loading { position:fixed; inset:0; background:rgba(244,246,251,.97); display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:1000; }
         .spinner { width:56px; height:56px; border:5px solid var(--border); border-top-color:var(--primary); border-radius:50%; animation:spin 1s linear infinite; margin-bottom:20px; }
         @keyframes spin { to { transform:rotate(360deg); } }
         #loading-text { font-size:1.2rem; font-weight:700; color:var(--primary); }
         #loading-step { font-size:.9rem; color:var(--muted); margin-top:6px; }
 
-        /* PAGAMENTO */
         .btn-mp { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; background:#009EE3; color:#fff; border:none; padding:16px; border-radius:10px; font-size:1rem; font-weight:700; cursor:pointer; box-shadow:0 6px 20px rgba(0,158,227,.3); transition:all .2s; margin-bottom:8px; }
         .btn-mp:hover { background:#0082BB; transform:translateY(-2px); }
         .btn-mp:disabled { background:var(--border); color:var(--muted); cursor:not-allowed; transform:none; }
         .mp-seguro { display:flex; align-items:center; justify-content:center; gap:6px; font-size:.78rem; color:var(--muted); margin-bottom:10px; }
 
-        /* SUCESSO */
         .card-success { border-color:#A7F3D0 !important; }
         .btn-success { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; background:var(--success); color:#fff; border:none; padding:16px; border-radius:10px; font-size:1rem; font-weight:700; cursor:pointer; transition:all .2s; }
         .btn-success:hover { background:#059669; transform:translateY(-2px); }
 
-        /* RESULTADOS */
         #section-results { width:100%; max-width:860px; }
         .results-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; flex-wrap:wrap; gap:10px; }
         .results-header h2 { font-size:1.6rem; font-weight:800; }
@@ -161,7 +153,7 @@
     </section>
 
     <!-- TELA 2: CÓDIGO -->
-    <section id="section-codigo" class="d-none" style="display:flex;flex-direction:column;align-items:center;width:100%;">
+    <section id="section-codigo" class="d-none">
         <div class="card">
             <h2>📧 Verifique seu email</h2>
             <p class="card-desc">Enviamos um código de 6 dígitos para <strong id="emailDestino"></strong>.<br>Digite abaixo para continuar:</p>
@@ -217,12 +209,12 @@
     </section>
 
     <!-- LIMITE -->
-    <section id="section-limite" class="d-none" style="display:flex;flex-direction:column;align-items:center;width:100%;">
+    <section id="section-limite" class="d-none">
         <div class="card">
             <div style="font-size:3rem;text-align:center;margin-bottom:16px;">🔒</div>
             <h2>Sua busca grátis foi usada!</h2>
             <p class="card-desc">Desbloqueie mais buscas por apenas <strong>R$ 9,99</strong> e continue encontrando as melhores vagas.</p>
-            <button class="btn-mp" id="btnPagar" onclick="iniciarPagamento()">
+            <button class="btn-mp" id="btnPagar" onclick="iniciarPagamento(this)">
                 <i class="fab fa-pix"></i> Pagar R$ 9,99 com Mercado Pago
             </button>
             <p class="mp-seguro"><i class="fas fa-lock"></i> 100% seguro · PIX, Cartão ou Boleto</p>
@@ -231,7 +223,7 @@
     </section>
 
     <!-- PAGAMENTO APROVADO -->
-    <section id="section-pago" class="d-none" style="display:flex;flex-direction:column;align-items:center;width:100%;">
+    <section id="section-pago" class="d-none">
         <div class="card card-success">
             <div style="font-size:3.5rem;text-align:center;margin-bottom:16px;">🎉</div>
             <h2 style="color:var(--success);">Pagamento Aprovado!</h2>
@@ -266,22 +258,36 @@
 <footer><p>&copy; 2026 <strong>VagaCerta AI</strong> | Desenvolvido por Johnny Marcos</p></footer>
 
 <script>
-let emailAtual = "";
+// ─── FIX 1: Estado centralizado ───────────────────────────────────────────────
+// Antes: variável solta "let emailAtual = ''"
+// Agora: objeto de estado — mais fácil de debugar, resetar e expandir
+const state = {
+    email: "",
+    hardSkills: [], // guardamos as skills extraídas pela IA para calcular score real
+};
+
+// ─── FIX 2: secao() sem lista manual ──────────────────────────────────────────
+// Antes: array hardcoded de IDs que precisava ser atualizado manualmente
+// Agora: seleciona todas as <section> dentro de <main> automaticamente
+function secao(id) {
+    document.querySelectorAll('main > section').forEach(s => s.classList.add('d-none'));
+    document.getElementById(id).classList.remove('d-none');
+}
 
 window.addEventListener('load', () => {
     const p = new URLSearchParams(window.location.search);
     if (p.get('pagamento') === 'sucesso' && p.get('email')) {
-        emailAtual = decodeURIComponent(p.get('email'));
+        state.email = decodeURIComponent(p.get('email'));
         secao('section-pago');
         window.history.replaceState({}, '', '/');
     } else if (p.get('pagamento') === 'falha') {
-        emailAtual = decodeURIComponent(p.get('email') || '');
+        state.email = decodeURIComponent(p.get('email') || '');
         alert('❌ Pagamento não concluído. Tente novamente.');
         window.history.replaceState({}, '', '/');
     }
 });
 
-document.getElementById('inputEmail').addEventListener('keydown', e => { if (e.key==='Enter') enviarCodigo(); });
+document.getElementById('inputEmail').addEventListener('keydown', e => { if (e.key === 'Enter') enviarCodigo(); });
 
 async function enviarCodigo() {
     const email = document.getElementById('inputEmail').value.trim().toLowerCase();
@@ -307,7 +313,7 @@ async function enviarCodigo() {
             body: JSON.stringify({ email })
         });
         const data = await resp.json();
-        emailAtual = email;
+        state.email = email;
 
         if (data.status === 'ja_verificado') {
             document.getElementById('emailLogado').textContent = email;
@@ -329,11 +335,11 @@ async function enviarCodigo() {
 }
 
 function proxCampo(el, proxId) {
-    el.value = el.value.replace(/[^0-9]/g,'');
+    el.value = el.value.replace(/[^0-9]/g, '');
     if (el.value && proxId) document.getElementById(proxId).focus();
 }
 function antCampo(e, el, antId) {
-    if (e.key==='Backspace' && !el.value) document.getElementById(antId).focus();
+    if (e.key === 'Backspace' && !el.value) document.getElementById(antId).focus();
 }
 
 async function verificarCodigo() {
@@ -355,15 +361,15 @@ async function verificarCodigo() {
         const resp = await fetch('/api/verificar-codigo', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email: emailAtual, codigo })
+            body: JSON.stringify({ email: state.email, codigo })
         });
         if (resp.ok) {
-            document.getElementById('emailLogado').textContent = emailAtual;
+            document.getElementById('emailLogado').textContent = state.email;
             secao('section-upload');
         } else {
             msgErro.style.display = 'block';
             msgErro.textContent = '❌ Código inválido. Tente novamente.';
-            ['c1','c2','c3','c4','c5','c6'].forEach(id => document.getElementById(id).value='');
+            ['c1','c2','c3','c4','c5','c6'].forEach(id => document.getElementById(id).value = '');
             document.getElementById('c1').focus();
         }
     } catch {
@@ -376,9 +382,9 @@ async function verificarCodigo() {
 }
 
 async function reenviarCodigo() {
-    ['c1','c2','c3','c4','c5','c6'].forEach(id => document.getElementById(id).value='');
+    ['c1','c2','c3','c4','c5','c6'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('msgErroCodigo').style.display = 'none';
-    await fetch('/api/enviar-codigo', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({email:emailAtual}) });
+    await fetch('/api/enviar-codigo', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: state.email }) });
     alert('✅ Novo código enviado!');
 }
 
@@ -397,113 +403,175 @@ fileInput.addEventListener('change', function() { handleFile(this.files[0]); });
 
 function handleFile(file) {
     if (!file) return;
-    if (!emailAtual) { alert('Sessão expirada.'); secao('section-email'); return; }
+    if (!state.email) { alert('Sessão expirada.'); secao('section-email'); return; }
     processarArquivo(file);
 }
 
-function setLoading(t,s) {
+function setLoading(t, s) {
     document.getElementById('loading-text').textContent = t;
     document.getElementById('loading-step').textContent = s;
 }
 
 async function processarArquivo(file) {
     secao('section-loading');
-    setLoading('Lendo seu currículo...','Extraindo texto do arquivo');
+    setLoading('Lendo seu currículo...', 'Extraindo texto do arquivo');
     const fd = new FormData();
     fd.append("file", file);
-    fd.append("email", emailAtual);
-    const etapas = [['🤖 IA analisando perfil...','Identificando cargo e habilidades'],['🔍 Buscando vagas...','Consultando Gupy, LinkedIn, InfoJobs e Catho'],['✨ Finalizando resultados...','Quase lá!']];
-    let i=0; const timer = setInterval(() => { if(i<etapas.length) setLoading(...etapas[i++]); }, 3500);
+    fd.append("email", state.email);
+    const etapas = [
+        ['🤖 IA analisando perfil...', 'Identificando cargo e habilidades'],
+        ['🔍 Buscando vagas...', 'Consultando Gupy, LinkedIn, InfoJobs e Catho'],
+        ['✨ Finalizando resultados...', 'Quase lá!']
+    ];
+    let i = 0;
+    const timer = setInterval(() => { if (i < etapas.length) setLoading(...etapas[i++]); }, 3500);
     try {
-        const resp = await fetch("/api/analisar-curriculo", {method:"POST",body:fd});
+        const resp = await fetch("/api/analisar-curriculo", { method: "POST", body: fd });
         clearInterval(timer);
-        if (!resp.ok) { const e=await resp.json().catch(()=>{}); throw new Error(e?.detail||'Erro '+resp.status); }
+        if (!resp.ok) {
+            const e = await resp.json().catch(() => ({}));
+            // FIX: mensagem amigável em vez de expor erro cru da API
+            const msg = resp.status === 429
+                ? 'Muitas requisições. Aguarde um momento e tente novamente.'
+                : resp.status >= 500
+                    ? 'Problema no servidor. Tente novamente em instantes.'
+                    : (e?.detail || 'Algo deu errado. Tente novamente.');
+            throw new Error(msg);
+        }
         const data = await resp.json();
-        if (data.status==="sucesso") renderizarResultados(data);
-        else if (data.status==="limite_atingido") secao('section-limite');
-        else { alert("❌ "+(data.mensagem||'Erro.')); secao('section-upload'); }
-    } catch(err) { clearInterval(timer); alert("❌ "+err.message); secao('section-upload'); }
+        if (data.status === "sucesso") renderizarResultados(data);
+        else if (data.status === "limite_atingido") secao('section-limite');
+        else { alert("❌ " + (data.mensagem || 'Erro.')); secao('section-upload'); }
+    } catch (err) {
+        clearInterval(timer);
+        alert("❌ " + err.message);
+        secao('section-upload');
+    }
 }
 
-async function iniciarPagamento() {
-    const btn = document.getElementById('btnPagar') || document.getElementById('btnUnlock');
-    if (btn) { btn.disabled=true; btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Gerando link...'; }
+// ─── FIX 3: iniciarPagamento recebe o botão como argumento ────────────────────
+// Antes: buscava btnUnlock || btnPagar — gambiarra propensa a erro
+// Agora: o botão que foi clicado é passado diretamente via onclick="iniciarPagamento(this)"
+async function iniciarPagamento(btn) {
+    const originalHTML = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Gerando link...';
     try {
-        const resp = await fetch('/api/criar-pagamento', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:emailAtual})});
+        const resp = await fetch('/api/criar-pagamento', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: state.email })
+        });
         const data = await resp.json();
-        if (data.status==='sucesso') window.location.href = data.link_pagamento;
-        else { alert('❌ Erro ao criar pagamento.'); if(btn){btn.disabled=false;btn.innerHTML='<i class="fab fa-pix"></i> Pagar R$ 9,99 com Mercado Pago';} }
-    } catch { alert('❌ Erro de conexão.'); if(btn){btn.disabled=false;btn.innerHTML='<i class="fab fa-pix"></i> Pagar R$ 9,99 com Mercado Pago';} }
+        if (data.status === 'sucesso') {
+            window.location.href = data.link_pagamento;
+        } else {
+            alert('❌ Erro ao criar pagamento.');
+            btn.disabled = false;
+            btn.innerHTML = originalHTML;
+        }
+    } catch {
+        alert('❌ Erro de conexão.');
+        btn.disabled = false;
+        btn.innerHTML = originalHTML;
+    }
 }
 
 function irParaUpload() {
-    document.getElementById('emailLogado').textContent = emailAtual;
+    document.getElementById('emailLogado').textContent = state.email;
     secao('section-upload');
 }
 
 function icone(emp) {
-    const e=emp.toLowerCase();
-    if(e.includes('hospital')||e.includes('saúde')) return 'fa-hospital';
-    if(e.includes('tech')||e.includes('softw')) return 'fa-laptop-code';
-    if(e.includes('agência')||e.includes('market')) return 'fa-bullhorn';
-    if(e.includes('banco')||e.includes('financ')) return 'fa-university';
+    const e = emp.toLowerCase();
+    if (e.includes('hospital') || e.includes('saúde')) return 'fa-hospital';
+    if (e.includes('tech') || e.includes('softw')) return 'fa-laptop-code';
+    if (e.includes('agência') || e.includes('market')) return 'fa-bullhorn';
+    if (e.includes('banco') || e.includes('financ')) return 'fa-university';
     return 'fa-building';
 }
-function score(i) { return [92,88,85,81,78,75,72,70,68,65,63,61][i]||60; }
+
+// ─── FIX 4: score() baseado nas skills reais do usuário ───────────────────────
+// Antes: array fixo [92,88,85,...] por posição — o "AI Match" era sempre igual
+// Agora: cruza as hard_skills extraídas pela IA com o título e empresa da vaga
+function score(vaga, hardSkills) {
+    const texto = (vaga.titulo + ' ' + (vaga.empresa || '')).toLowerCase();
+    const matches = hardSkills.filter(s => texto.includes(s.toLowerCase()));
+    const base = 58;
+    const bonus = Math.min(matches.length * 9, 38); // máx +38 pontos por matches
+    return Math.min(97, base + bonus);
+}
+
 function contrato(t) {
-    t=t.toLowerCase();
-    if(t.includes('estágio')||t.includes('estagio')) return 'Estágio';
-    if(t.includes('pj')||t.includes('freelan')) return 'PJ';
-    if(t.includes('sênior')||t.includes('pleno')) return 'CLT';
+    t = t.toLowerCase();
+    if (t.includes('estágio') || t.includes('estagio')) return 'Estágio';
+    if (t.includes('pj') || t.includes('freelan')) return 'PJ';
+    if (t.includes('sênior') || t.includes('pleno')) return 'CLT';
     return 'Full-time';
 }
 
 function renderizarResultados(data) {
     const ia = data.analise_ia;
-    document.getElementById('res-nome').textContent   = ia.nome||'—';
-    document.getElementById('res-cargo').textContent  = ia.cargo_principal||'—';
-    document.getElementById('res-cidade').textContent = ia.cidade||'—';
-    const sd = document.getElementById('res-skills');
-    sd.innerHTML='';
-    (ia.hard_skills||[]).slice(0,4).forEach(s => sd.innerHTML+=`<span class="skill-tag">${s}</span>`);
+    document.getElementById('res-nome').textContent   = ia.nome || '—';
+    document.getElementById('res-cargo').textContent  = ia.cargo_principal || '—';
+    document.getElementById('res-cidade').textContent = ia.cidade || '—';
 
-    const vagas = data.vagas||[];
-    document.getElementById('res-subtitulo').textContent = vagas.length>0?`Encontramos ${vagas.length} vagas compatíveis.`:'Nenhuma vaga encontrada agora.';
+    // Salva as skills no state para usar no score()
+    state.hardSkills = ia.hard_skills || [];
+
+    const sd = document.getElementById('res-skills');
+    sd.innerHTML = '';
+    state.hardSkills.slice(0, 4).forEach(s => sd.innerHTML += `<span class="skill-tag">${s}</span>`);
+
+    const vagas = data.vagas || [];
+    document.getElementById('res-subtitulo').textContent = vagas.length > 0
+        ? `Encontramos ${vagas.length} vagas compatíveis.`
+        : 'Nenhuma vaga encontrada agora.';
 
     const vd = document.getElementById('vagas-content');
-    if (!vagas.length) { vd.innerHTML=`<div class="sem-vagas"><i class="fas fa-search"></i><p>Não encontramos vagas agora.<br>Tente em alguns minutos.</p></div>`; secao('section-results'); return; }
+    if (!vagas.length) {
+        vd.innerHTML = `<div class="sem-vagas"><i class="fas fa-search"></i><p>Não encontramos vagas agora.<br>Tente em alguns minutos.</p></div>`;
+        secao('section-results');
+        return;
+    }
 
-    const vis = vagas.slice(0,3).map((v,i) => `
+    const vis = vagas.slice(0, 3).map(v => `
         <a class="vaga-card" href="${v.link}" target="_blank" rel="noopener">
             <div class="vaga-logo"><i class="fas ${icone(v.empresa)}"></i></div>
             <div class="vaga-info">
                 <div class="vaga-titulo">${v.titulo}</div>
                 <div class="vaga-empresa">${v.empresa}</div>
                 <div class="vaga-tags">
-                    <span class="vaga-tag"><i class="fas fa-map-marker-alt"></i> ${v.local||'Remoto'}</span>
+                    <span class="vaga-tag"><i class="fas fa-map-marker-alt"></i> ${v.local || 'Remoto'}</span>
                     <span class="vaga-tag"><i class="fas fa-briefcase"></i> ${contrato(v.titulo)}</span>
                 </div>
             </div>
-            <div class="match-badge"><div class="match-label">AI Match</div><div class="match-value">${score(i)}%</div></div>
+            <div class="match-badge">
+                <div class="match-label">AI Match</div>
+                <div class="match-value">${score(v, state.hardSkills)}%</div>
+            </div>
         </a>`).join('');
 
-    const blq = vagas.slice(3,6).map((v,i) => `
+    const blq = vagas.slice(3, 6).map(v => `
         <div class="vaga-locked">
             <div class="vaga-logo"><i class="fas fa-building"></i></div>
             <div class="vaga-info">
                 <div class="vaga-titulo">${v.titulo}</div>
                 <div class="vaga-empresa">${v.empresa}</div>
                 <div class="vaga-tags">
-                    <span class="vaga-tag"><i class="fas fa-map-marker-alt"></i> ${v.local||'—'}</span>
+                    <span class="vaga-tag"><i class="fas fa-map-marker-alt"></i> ${v.local || '—'}</span>
                     <span class="vaga-tag"><i class="fas fa-briefcase"></i> ${contrato(v.titulo)}</span>
                 </div>
             </div>
-            <div class="match-badge"><div class="match-label">AI Match</div><div class="match-value">${score(i+3)}%</div></div>
+            <div class="match-badge">
+                <div class="match-label">AI Match</div>
+                <div class="match-value">${score(v, state.hardSkills)}%</div>
+            </div>
         </div>`).join('');
 
-    const desbloqueio = vagas.length>3 ? `
+    const desbloqueio = vagas.length > 3 ? `
         <div class="unlock-section">
-            <button class="btn-unlock" id="btnUnlock" onclick="iniciarPagamento()">
+            <button class="btn-unlock" onclick="iniciarPagamento(this)">
                 <i class="fas fa-lock-open"></i> Desbloquear todas as vagas por R$ 9,99
             </button>
             <span class="unlock-note">PIX, Cartão ou Boleto · Acesso imediato · Sem assinatura</span>
@@ -513,13 +581,20 @@ function renderizarResultados(data) {
     secao('section-results');
 }
 
-function secao(id) {
-    ['section-email','section-codigo','section-upload','section-loading','section-limite','section-pago','section-results']
-        .forEach(s => document.getElementById(s).classList.add('d-none'));
-    document.getElementById(id).classList.remove('d-none');
+function reiniciar() {
+    fileInput.value = '';
+    state.email = '';
+    state.hardSkills = [];
+    document.getElementById('inputEmail').value = '';
+    secao('section-email');
 }
-function reiniciar() { fileInput.value=''; emailAtual=''; document.getElementById('inputEmail').value=''; secao('section-email'); }
-function voltarEmail() { emailAtual=''; document.getElementById('inputEmail').value=''; secao('section-email'); }
+
+function voltarEmail() {
+    state.email = '';
+    state.hardSkills = [];
+    document.getElementById('inputEmail').value = '';
+    secao('section-email');
+}
 </script>
 </body>
 </html>
